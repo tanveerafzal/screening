@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="RMSScreeningServices"
+  id="myeclipse.1376324015739"
+  context-root="/RMSScreeningServices"
+  j2ee-spec="6.0"
+  archive="RMSScreeningServices.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
