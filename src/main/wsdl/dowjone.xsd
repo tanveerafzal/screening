@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://www.remitservices.com/dowjone" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dowjone="http://www.remitservices.com/dowjone">
+	<xs:element name="DateOfBirth" type="dowjone:DateOfBirth"/>
+	<xs:complexType name="DateOfBirth">
+		<xs:sequence>
+			<xs:element name="day" type="xs:int" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="month" type="xs:int" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="year" type="xs:int" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SearchResults" type="dowjone:SearchResults"/>
+	<xs:complexType name="SearchResults">
+		<xs:sequence>
+			<xs:element name="entityId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="entityType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="date" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="gender" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="activestatus" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthPlace" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="profileNotes" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="firstName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="lastName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="middleName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="maidenName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="entityName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="RoleDetail" type="dowjone:RoleDetail" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="CompanyDetails" type="dowjone:CompanyDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="CountryDetails" type="dowjone:CountryDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="VesselDetails" type="dowjone:VesselDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DateDetail" type="dowjone:DateDetail" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="OccTitle" type="dowjone:OccTitle" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AddressDetail" type="dowjone:AddressDetail" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="SanctionsReferences" type="dowjone:SanctionsReferences" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="AddressDetail" type="dowjone:AddressDetail"/>
+	<xs:complexType name="AddressDetail">
+		<xs:annotation>
+			<xs:documentation>AddressDetail entity. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="addressId" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Fields</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="addrType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="addressline" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="addresscity" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="addresscountry" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="countyId" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="comments" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="createdByUser" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="createdDate" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CompanyDetails" type="dowjone:CompanyDetails"/>
+	<xs:complexType name="CompanyDetails">
+		<xs:annotation>
+			<xs:documentation>CompanyDetails entity. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Fields</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="addressline" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="addresscity" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="addresscountry" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="url" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="comments" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CountryDetails" type="dowjone:CountryDetails"/>
+	<xs:complexType name="CountryDetails">
+		<xs:annotation>
+			<xs:documentation>CountryDetails entity. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Fields</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="person" type="dowjone:Person" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="entities" type="dowjone:Entities" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="countryType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="code" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="DateDetail" type="dowjone:DateDetail"/>
+	<xs:complexType name="DateDetail">
+		<xs:annotation>
+			<xs:documentation>DateDetail entity. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="dateDetailId" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Fields</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dateType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="day" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="month" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="year" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="notes" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="EntityDescription" type="dowjone:EntityDescription"/>
+	<xs:complexType name="EntityDescription">
+		<xs:annotation>
+			<xs:documentation>Description entity. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="descriptionId" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Fields</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SearchCriteria" type="dowjone:SearchCriteria"/>
+	<xs:complexType name="SearchCriteria">
+		<xs:sequence>
+			<xs:element name="entityId" type="xs:int" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="firstName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="lastName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="middleName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="entityName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="searchType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DateOfBirth" type="dowjone:DateOfBirth" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Entities" type="dowjone:Entities"/>
+	<xs:complexType name="Entities">
+		<xs:annotation>
+			<xs:documentation>Entities entity. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="entityId" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Fields</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="action" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="date" type="xs:date" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="IdnumberTypes" type="dowjone:IdnumberTypes"/>
+	<xs:complexType name="IdnumberTypes">
+		<xs:annotation>
+			<xs:documentation>IdnumberTypes entity. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Fields</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="entiryId" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="idType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="notes" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="NameDetail" type="dowjone:NameDetail"/>
+	<xs:complexType name="NameDetail">
+		<xs:annotation>
+			<xs:documentation>NameDetail entity. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="nameId" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Fields</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="titlehonorific" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="firstname" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="middlename" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="surname" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="maidenname" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="suffix" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="entityname" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="singlestringname" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="originalscriptname" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="comments" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="createdByUser" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="createdDate" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="OccTitle" type="dowjone:OccTitle"/>
+	<xs:complexType name="OccTitle">
+		<xs:annotation>
+			<xs:documentation>OccTitle entity. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="occTitleId" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Fields</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="occCat" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sinceday" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sincemonth" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sinceyear" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="today" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="tomonth" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="toyear" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Person" type="dowjone:Person"/>
+	<xs:complexType name="Person">
+		<xs:annotation>
+			<xs:documentation>Person entity. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="personId" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Fields</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="action" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="date" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="gender" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="activestatus" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="deceased" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="nameId" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="descriptionId" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="roleDetailId" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="birthplace" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="comments" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="createdByUser" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="createdDate" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="profilenotes" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dateDetails" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="countryDetailses" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="addressDetails" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="RoleDetail" type="dowjone:RoleDetail"/>
+	<xs:complexType name="RoleDetail">
+		<xs:annotation>
+			<xs:documentation>RoleDetail entity. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="roleDetailId" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Fields</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="roleType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SanctionsReferences" type="dowjone:SanctionsReferences"/>
+	<xs:complexType name="SanctionsReferences">
+		<xs:annotation>
+			<xs:documentation>SanctionsReferences entity. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Fields</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="entiryId" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sinceday" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sincemonth" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sinceyear" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="today" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SourceDescription" type="dowjone:SourceDescription"/>
+	<xs:complexType name="SourceDescription">
+		<xs:annotation>
+			<xs:documentation>SourceDescription entity. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Fields</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="entiryId" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="VesselDetails" type="dowjone:VesselDetails"/>
+	<xs:complexType name="VesselDetails">
+		<xs:annotation>
+			<xs:documentation>VesselDetails entity. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Fields</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="vesselcallsign" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="vesseltype" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="vesseltonnage" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="vesselgrt" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="vesselowner" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="vesselflag" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

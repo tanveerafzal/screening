@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	wsdlLocation="C:\development\rndws\RMSWebServices\src\main\wsdl\SecurityService.wsdl"
+	xmlns="http://java.sun.com/xml/ns/jaxws">    
+	<bindings node="wsdl:definitions">
+					<enableWrapperStyle>false</enableWrapperStyle>
+					</bindings>    
+</bindings>

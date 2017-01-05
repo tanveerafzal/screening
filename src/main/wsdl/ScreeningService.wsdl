@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="ScreeningService" targetNamespace="http://www.remitservices.com/ScreeningService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cs="http://www.remitservices.com/ScreeningService/" xmlns:dowjone="http://www.remitservices.com/dowjone" xmlns:common="http://www.remitservices.com/common">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.remitservices.com/ScreeningService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cs="http://www.remitservices.com/ScreeningService/" xmlns:common="http://www.remitservices.com/common" xmlns:dowjone="http://www.remitservices.com/dowjone">
+			<xsd:import namespace="http://www.remitservices.com/dowjone" schemaLocation="dowjone.xsd"/>
+			<xsd:import namespace="http://www.remitservices.com/common" schemaLocation="common.xsd"/>
+			<xsd:element name="searchEntities">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="context" type="common:Context" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="searchCriteria" type="dowjone:SearchCriteria" minOccurs="1" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="searchEntitiesResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="searchResults" type="dowjone:SearchResults" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+			<xsd:element name="getEntityDetail">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="entityId" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="context" type="common:Context" minOccurs="1" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="getEntityDetailResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="searchResults" type="dowjone:SearchResults" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+		
+			<xsd:element name="fault" type="common:BaseFault"/>
+			
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="searchEntitiesRequest">
+		<wsdl:part name="parameters" element="cs:searchEntities"/>
+	</wsdl:message>
+	<wsdl:message name="searchEntitiesResponse">
+		<wsdl:part name="parameters" element="cs:searchEntitiesResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="getEntityDetailRequest">
+		<wsdl:part name="parameters" element="cs:getEntityDetail"/>
+	</wsdl:message>
+	<wsdl:message name="getEntityDetailResponse">
+		<wsdl:part name="parameters" element="cs:getEntityDetailResponse"/>
+	</wsdl:message>
+
+
+	<wsdl:message name="RMSException">
+		<wsdl:part name="serviceFault" element="cs:fault"/>
+	</wsdl:message>
+	
+	<wsdl:portType name="ScreeningService">
+		<wsdl:operation name="searchEntities">
+			<wsdl:input name="searchEntitiesRequestRequest" message="cs:searchEntitiesRequest"/>
+			<wsdl:output name="searchEntitiesResponseResponse" message="cs:searchEntitiesResponse"/>
+			<wsdl:fault name="RMSException" message="cs:RMSException"/>
+		</wsdl:operation>
+		<wsdl:operation name="getEntityDetail">
+			<wsdl:input name="getEntityDetailRequestRequest" message="cs:getEntityDetailRequest"/>
+			<wsdl:output name="getEntityDetailResponseResponse" message="cs:getEntityDetailResponse"/>
+			<wsdl:fault name="RMSException" message="cs:RMSException"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ScreeningServiceSOAP" type="cs:ScreeningService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+	
+		<wsdl:operation name="getEntityDetail">
+			<soap:operation style="document"/>
+			<wsdl:input name="getEntityDetailRequestRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getEntityDetailResponseResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="RMSException">
+				<soap:fault name="RMSException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	
+	
+		<wsdl:operation name="searchEntities">
+			<soap:operation style="document"/>
+			<wsdl:input name="searchEntitiesRequestRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="searchEntitiesResponseResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="RMSException">
+				<soap:fault name="RMSException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ScreeningService">
+		<wsdl:port name="ScreeningServicePort" binding="cs:ScreeningServiceSOAP">
+			<soap:address location="www.exampleLocation.com/Port1"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

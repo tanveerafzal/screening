@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<configuration>
+
+	<rator>
+		<datasource>
+			<name>ratorDs</name>
+		</datasource>
+	</rator>
+	<cdm>
+		<datasource>
+			<name>cdmDs</name>
+		</datasource>
+	</cdm>
+	<remitOne>
+		<USA>
+			<userName>agent</userName>
+			<password>remitone</password>
+		</USA>	
+		<Canada>
+			<userName>agentca</userName>
+			<password>remitone123</password>
+		</Canada>	
+		<pin>12345</pin>
+		<base-web-service-url>http://tazza.remitone.com/ws/</base-web-service-url>
+		<web-service>
+			<remitter>
+				<url>http://tazza.remitone.com//ws/remitter/searchRemitter</url>
+				<qname>http://soap.CDRator.com</qname>
+				<name>PhoneNumberServiceService</name>
+			</remitter> 
+			<beneficiary>
+				<url>http://tazza.remitone.com//ws/remitter/searchRemitter</url>
+				<qname>http://soap.CDRator.com</qname>
+				<name>PhoneNumberServiceService</name>
+			</beneficiary> 
+			<transaction>
+				<url>http://tazza.remitone.com//ws/transaction/searchRemitter</url>
+				<qname>http://soap.CDRator.com</qname>
+				<name>PhoneNumberServiceService</name>
+			</transaction> 
+		</web-service>
+	</remitOne>
+		<mail>
+		<smtp>
+			<host>smtpout.secureserver.net</host>
+			<port>80</port>
+			<user>info@ultrasoftsolutions.ca</user>
+			<password>viewsonic</password>
+		</smtp>
+	</mail>
+	<timeout>
+		<couponReservation>
+			<timeInMin>15</timeInMin>
+		</couponReservation>
+	</timeout>
+	
+	<transaction>
+		<allowed-cust-status>valid,edd</allowed-cust-status>
+		<sms_notification>f</sms_notification>
+		<sms_confirmation>f</sms_confirmation>
+		
+	</transaction>
+ <rms>
+        <web-service>
+            <customer>
+                <url>http://localhost:8080/RMSWebServices/CustomerServicePort</url>
+                <qname>http://www.remitservices.com/CustomerService/</qname>
+                <name>CustomerService</name>
+            </customer>
+            <transaction>
+                  <url>http://localhost:8080/RMSWebServices/TransactionServicePort</url>
+                   <qname>http://www.remitservices.com/TransactionService/</qname>
+                   <name>TransactionService</name>
+            </transaction>
+            <quote>
+                  <url>http://localhost:8080/RMSWebServices/QuoteServicePort</url>
+                   <qname>http://www.remitservices.com/QuoteService/</qname>
+                   <name>QuoteService</name>
+            </quote>
+            <recipient>
+                  <url>http://localhost:8080/RMSWebServices/RecipientServicePort</url>
+                   <qname>http://www.remitservices.com/RecipientService/</qname>
+                   <name>RecipientService</name>
+            </recipient>
+            <security>
+                <url>http://localhost:8080/RMSWebServices/SecurityServicePort</url>
+                <qname>http://www.remitservices.com/SecurityService/</qname>
+                <name>SecurityService</name>
+            </security>
+            <reference>
+                <url>http://172.17.235.21:5001/ReferenceDataService_ver_1.0.1/ReferenceDataService</url>
+                <qname>http://www.remitservices.com/ReferenceDataService/</qname>
+                <name>ReferenceDataService</name>
+            </reference>
+        </web-service>
+    </rms>
+	
+	
+
+	<ct-payment>
+       <CompanyNumber>10001</CompanyNumber>
+       <MerchantNumber>95340018</MerchantNumber>
+       <InputType>I</InputType>
+       <POSTermNumber></POSTermNumber>
+       <OperatorID>SWIPESIM</OperatorID>
+       <SuccessURL>http://local.remitservices.com/pgw/payment/ctpaimentSuccess</SuccessURL>
+       <FailureURL>http://local.remitservices.com/pgw/payment/ctpaimentFailure</FailureURL>
+       <IPAddress></IPAddress>
+       <KeyDirectory></KeyDirectory>
+       <doNewPurchaseSession>
+           <SuccessCode>5000</SuccessCode> 
+       </doNewPurchaseSession>
+   </ct-payment>  
+    
+<batch-process>
+	<remitCode>TAZ</remitCode>
+	<payoutFileType>PayoutFile</payoutFileType>
+	<returnFileType>returnFile</returnFileType>
+	<accountType>C/C</accountType>
+	<Currency>L</Currency>
+	<TransactionType>N</TransactionType>
+	<PaymentType>B</PaymentType>
+		<status>
+			<sent>SENT</sent>
+			<failed>FAILED</failed>
+		</status>
+
+	 
+</batch-process>
+
+<security>
+	<verification-url>http://sites.remitservices.com/zhipit/login/accountVerification?veriiaiodksjahsajkChsOehDsjEsha</verification-url>
+	<verification-code-expiry-hours>24</verification-code-expiry-hours>
+</security>
+<content>
+	<ConfidentialityNoticeandDisclaimer>ConfidentialityNoticeandDisclaimer</ConfidentialityNoticeandDisclaimer>
+</content>
+	
+</configuration>
